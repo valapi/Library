@@ -26,7 +26,7 @@ interface ValorantAPIRegion {
 //class
 
 /**
- * * Class ID: @ing3kth/val-api/ValRegion
+ * * Class ID: @ing3kth/valapi/ValRegion
  */
 class ValRegion extends CustomEvent {
     private base:keyof typeof _Region | string;

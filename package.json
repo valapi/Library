@@ -1,11 +1,12 @@
 {
-  "name": "@val-api/lib",
+  "name": "@valapi/lib",
   "version": "1.0.0",
   "description": "Valorant API - Library",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry":"https://npm.pkg.github.com"
   },
   "scripts": {
     "typescript": "npx tsc --project tsconfig.json",
@@ -13,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ing-Valorant-API/Library.git"
+    "url": "git://github.com/valapi/Library.git"
   },
   "keywords": [
     "valorant",
     "riot",
     "node",
     "api",
-    "val-api",
+    "valapi",
     "val",
     "mfa",
     "2fa",
@@ -28,8 +29,8 @@
     "twofactor"
   ],
   "author": {
-    "name": "val-api",
-    "url": "https://github.com/Ing-Valorant-API"
+    "name": "valapi",
+    "url": "https://github.com/valapi"
   },
   "contributors": [
     {
@@ -39,9 +40,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ing-Valorant-API/Library/issues"
+    "url": "https://github.com/valapi/Library/issues"
   },
-  "homepage": "https://github.com/Ing-Valorant-API/Library#readme",
+  "homepage": "https://github.com/valapi/Library#readme",
   "devDependencies": {
     "@types/node": "^17.0.25",
     "typescript": "^4.6.3"

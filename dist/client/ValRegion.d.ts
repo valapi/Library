@@ -19,7 +19,7 @@ interface ValorantAPIRegion {
     };
 }
 /**
- * * Class ID: @ing3kth/val-api/ValRegion
+ * * Class ID: @ing3kth/valapi/ValRegion
  */
 declare class ValRegion extends CustomEvent {
     private base;
