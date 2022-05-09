@@ -12,9 +12,6 @@ export default {
     //change when have new map
     'newmap': 'Fracture',
 
-    //Unknown
-    'seeding': 'Unknown',
-
     data: {
         //format 2
         Unrated: 'unrated',

@@ -8,7 +8,6 @@ declare const _default: {
     snowball: string;
     '': string;
     newmap: string;
-    seeding: string;
     data: {
         Unrated: string;
         Competitive: string;
