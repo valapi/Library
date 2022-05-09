@@ -8,7 +8,7 @@ declare class CustomEvent {
      * @param {String} name Name
      * @param {any} args Data
      */
-    protected emit(name: string, ...args: Array<any>): void;
+    emit(name: string, ...args: Array<any>): void;
     /**
      *
      * @param {String} name Name

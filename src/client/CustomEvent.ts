@@ -14,7 +14,7 @@ class CustomEvent {
      * @param {String} name Name
      * @param {any} args Data
      */
-     protected emit(name: string, ...args: Array<any>): void {
+     public emit(name: string, ...args: Array<any>): void {
         if (this.EventController[name]) {
             this.EventController[name].forEach((callback:Function) => {
                 callback(...args);
