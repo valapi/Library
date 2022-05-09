@@ -2,7 +2,7 @@ export default {
     //format 1
     "ar-AE": "Arabic_UAE",
     "de-DE": "German_Germany",
-    "en-GB": "English_United_Kingdom",
+    "en-GB": "English_United_Kingdom", //not support valorant-api.com
     "en-US": "English_United_States",
     "es-ES": "Spanish_Spain",
     "es-MX": "Spanish_Mexico",
