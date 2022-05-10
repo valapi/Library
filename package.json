@@ -1,6 +1,6 @@
 {
   "name": "@valapi/lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Valorant API - Library",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
