@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toUft8 = exports.Region = exports.QueueId = exports.Locale = exports.ItemTypeId = exports.Currency = exports.ValRegion = exports.CustomEvent = exports.HTTP_Response = void 0;
+exports.toUft8 = exports.Region = exports.QueueId = exports.Locale = exports.ItemTypeId = exports.ValRegion = exports.CustomEvent = exports.HTTP_Response = void 0;
 const HTTP_Response_1 = __importDefault(require("./HTTP_Response"));
 exports.HTTP_Response = HTTP_Response_1.default;
 //client
@@ -13,8 +13,6 @@ Object.defineProperty(exports, "CustomEvent", { enumerable: true, get: function 
 const ValRegion_1 = require("./client/ValRegion");
 Object.defineProperty(exports, "ValRegion", { enumerable: true, get: function () { return ValRegion_1.ValRegion; } });
 //resources
-const Currency_1 = __importDefault(require("./resources/Currency"));
-exports.Currency = Currency_1.default;
 const ItemTypeId_1 = __importDefault(require("./resources/ItemTypeId"));
 exports.ItemTypeId = ItemTypeId_1.default;
 const Locale_1 = __importDefault(require("./resources/Locale"));

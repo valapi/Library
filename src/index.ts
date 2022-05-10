@@ -7,7 +7,6 @@ import { CustomEvent } from "./client/CustomEvent";
 import { ValRegion, type ValorantAPIRegion } from "./client/ValRegion";
 
 //resources
-import Currency from "./resources/Currency";
 import ItemTypeId from "./resources/ItemTypeId";
 import Locale from "./resources/Locale";
 import QueueId from "./resources/QueueId";
@@ -26,7 +25,6 @@ export {
     ValRegion, type ValorantAPIRegion,
 
     //resources
-    Currency,
     ItemTypeId,
     Locale,
     QueueId,
