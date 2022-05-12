@@ -1,4 +1,13 @@
+//interface
+
+interface ValorantAPIError {
+    errorCode: string;
+    message: string;
+    data: any;
+}
+
 //class
+
 class CustomEvent {
     protected EventController: {
         //key:value
@@ -71,3 +80,4 @@ class CustomEvent {
 
 //export
 export { CustomEvent }
+export type { ValorantAPIError }

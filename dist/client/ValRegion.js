@@ -6,18 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ValRegion = void 0;
 //import
 const Region_1 = __importDefault(require("../resources/Region"));
-const CustomEvent_1 = require("./CustomEvent");
 //class
-/**
- * * Class ID: @ing3kth/valapi/ValRegion
- */
-class ValRegion extends CustomEvent_1.CustomEvent {
+class ValRegion {
     /**
     * @param {String} region Region
     * @returns {IValRegion}
     */
     constructor(region = 'na') {
-        super();
         this.base = region;
         if (!Region_1.default[region] || region === 'data') {
             throw new Error(`Region '${String(this.base)}' not found`);

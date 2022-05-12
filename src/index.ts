@@ -3,7 +3,7 @@
 import HTTP_Response from "./HTTP_Response";
 
 //client
-import { CustomEvent } from "./client/CustomEvent";
+import { CustomEvent, type ValorantAPIError } from "./client/CustomEvent";
 import { ValRegion, type ValorantAPIRegion } from "./client/ValRegion";
 
 //resources
@@ -21,7 +21,7 @@ export {
     HTTP_Response,
 
     //client
-    CustomEvent,
+    CustomEvent, type ValorantAPIError,
     ValRegion, type ValorantAPIRegion,
 
     //resources

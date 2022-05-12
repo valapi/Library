@@ -1,3 +1,8 @@
+interface ValorantAPIError {
+    errorCode: string;
+    message: string;
+    data: any;
+}
 declare class CustomEvent {
     protected EventController: {
         [key: string]: Array<Function>;
@@ -29,4 +34,5 @@ declare class CustomEvent {
     once(name: string, callback: Function): void;
 }
 export { CustomEvent };
+export type { ValorantAPIError };
 //# sourceMappingURL=CustomEvent.d.ts.map

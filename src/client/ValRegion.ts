@@ -1,6 +1,5 @@
 //import
 import _Region from "../resources/Region";
-import { CustomEvent } from './CustomEvent';
 
 //interface
 
@@ -25,10 +24,7 @@ interface ValorantAPIRegion {
 
 //class
 
-/**
- * * Class ID: @ing3kth/valapi/ValRegion
- */
-class ValRegion extends CustomEvent {
+class ValRegion {
     private base:keyof typeof _Region | string;
     private region:any;
     private server:any;
@@ -39,7 +35,6 @@ class ValRegion extends CustomEvent {
     * @returns {IValRegion}
     */
     constructor(region:keyof typeof _Region = 'na') {
-        super();
         this.base = region;
 
         if(!_Region[region] || region === 'data') {

@@ -1,5 +1,4 @@
 import _Region from "../resources/Region";
-import { CustomEvent } from './CustomEvent';
 interface ValorantAPIRegion {
     data: {
         base: string;
@@ -18,10 +17,7 @@ interface ValorantAPIRegion {
         server: string;
     };
 }
-/**
- * * Class ID: @ing3kth/valapi/ValRegion
- */
-declare class ValRegion extends CustomEvent {
+declare class ValRegion {
     private base;
     private region;
     private server;

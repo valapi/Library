@@ -1,4 +1,5 @@
 "use strict";
+//interface
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomEvent = void 0;
 //class
