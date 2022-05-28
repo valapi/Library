@@ -3,7 +3,7 @@ import _Region from "../resources/Region";
 
 //interface
 
-interface ValorantAPIRegion {
+interface ValorantApiRegion {
     data: {
         base: string,
         api: string,
@@ -31,13 +31,13 @@ class ValRegion {
     private riotRegion:any;
 
     /**
-    * @param {String} region Region
-    * @returns {IValRegion}
-    */
-    constructor(region:keyof typeof _Region = 'na') {
+     * Class Constructor
+     * @param {String} region Region
+     */
+    public constructor(region:keyof typeof _Region.from = 'na') {
         this.base = region;
 
-        if(!_Region[region] || region === 'data') {
+        if(!_Region.from[region]) {
             throw new Error(`Region '${String(this.base)}' not found`);
         }
 
@@ -84,9 +84,9 @@ class ValRegion {
 
     /**
      * 
-     * @returns {ValorantAPIRegion}
+     * @returns {ValorantApiRegion}
      */
-     public toJSON():ValorantAPIRegion {
+     public toJSON():ValorantApiRegion {
         return {
             data: {
                 base: this.base,
@@ -109,22 +109,14 @@ class ValRegion {
 
     /**
      * @param {String} region Region
-     * @returns {String}
+     * @returns {ValorantApiRegion}
      */
-     public static toString(region: keyof typeof _Region.data):keyof typeof _Region {
-        return _Region.data[region] as keyof typeof _Region;
-    }
-
-    /**
-     * @param {String} region Region
-     * @returns {ValorantAPIRegion}
-     */
-     public static fromString(region: keyof typeof _Region.data):ValorantAPIRegion {
-        const _region = new ValRegion(ValRegion.toString(region));
+     public static fromString(region: keyof typeof _Region.to):ValorantApiRegion {
+        const _region = new ValRegion(_Region.toString(region));
         return _region.toJSON();
     }
 }
 
 //export
 export { ValRegion };
-export type { ValorantAPIRegion };
+export type { ValorantApiRegion };

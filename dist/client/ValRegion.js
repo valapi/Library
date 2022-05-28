@@ -9,12 +9,12 @@ const Region_1 = __importDefault(require("../resources/Region"));
 //class
 class ValRegion {
     /**
-    * @param {String} region Region
-    * @returns {IValRegion}
-    */
+     * Class Constructor
+     * @param {String} region Region
+     */
     constructor(region = 'na') {
         this.base = region;
-        if (!Region_1.default[region] || region === 'data') {
+        if (!Region_1.default.from[region]) {
             throw new Error(`Region '${String(this.base)}' not found`);
         }
         switch (region) {
@@ -59,7 +59,7 @@ class ValRegion {
     }
     /**
      *
-     * @returns {ValorantAPIRegion}
+     * @returns {ValorantApiRegion}
      */
     toJSON() {
         return {
@@ -83,17 +83,10 @@ class ValRegion {
     }
     /**
      * @param {String} region Region
-     * @returns {String}
-     */
-    static toString(region) {
-        return Region_1.default.data[region];
-    }
-    /**
-     * @param {String} region Region
-     * @returns {ValorantAPIRegion}
+     * @returns {ValorantApiRegion}
      */
     static fromString(region) {
-        const _region = new ValRegion(ValRegion.toString(region));
+        const _region = new ValRegion(Region_1.default.toString(region));
         return _region.toJSON();
     }
 }

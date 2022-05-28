@@ -4,12 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toUft8 = exports.Region = exports.QueueId = exports.Locale = exports.ItemTypeId = exports.ValRegion = exports.CustomEvent = exports.HTTP_Response = void 0;
+exports.toUft8 = exports.Region = exports.QueueId = exports.Locale = exports.ItemTypeId = exports.ValRegion = exports.ValEvent = exports.ValRequestClient = exports.ValHttpResponse = void 0;
 const HTTP_Response_1 = __importDefault(require("./HTTP_Response"));
-exports.HTTP_Response = HTTP_Response_1.default;
+exports.ValHttpResponse = HTTP_Response_1.default;
 //client
+const AxiosClient_1 = require("./client/AxiosClient");
+Object.defineProperty(exports, "ValRequestClient", { enumerable: true, get: function () { return AxiosClient_1.AxiosClient; } });
 const CustomEvent_1 = require("./client/CustomEvent");
-Object.defineProperty(exports, "CustomEvent", { enumerable: true, get: function () { return CustomEvent_1.CustomEvent; } });
+Object.defineProperty(exports, "ValEvent", { enumerable: true, get: function () { return CustomEvent_1.CustomEvent; } });
 const ValRegion_1 = require("./client/ValRegion");
 Object.defineProperty(exports, "ValRegion", { enumerable: true, get: function () { return ValRegion_1.ValRegion; } });
 //resources

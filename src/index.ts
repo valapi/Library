@@ -3,8 +3,9 @@
 import HTTP_Response from "./HTTP_Response";
 
 //client
-import { CustomEvent, type ValorantAPIError } from "./client/CustomEvent";
-import { ValRegion, type ValorantAPIRegion } from "./client/ValRegion";
+import { AxiosClient, type ValorantApiRequestResponse, ValorantApiRequestMethod, ValorantApiRequestData, ValorantApiRequestEvent } from "./client/AxiosClient";
+import { CustomEvent, type ValorantApiError } from "./client/CustomEvent";
+import { ValRegion, type ValorantApiRegion } from "./client/ValRegion";
 
 //resources
 import ItemTypeId from "./resources/ItemTypeId";
@@ -18,11 +19,12 @@ import toUft8 from "./utils/toUft8";
 // export //
 
 export {
-    HTTP_Response,
+    HTTP_Response as ValHttpResponse,
 
     //client
-    CustomEvent, type ValorantAPIError,
-    ValRegion, type ValorantAPIRegion,
+    AxiosClient as ValRequestClient, ValorantApiRequestResponse, ValorantApiRequestMethod, ValorantApiRequestData, ValorantApiRequestEvent,
+    CustomEvent as ValEvent, type ValorantApiError,
+    ValRegion, type ValorantApiRegion,
 
     //resources
     ItemTypeId,

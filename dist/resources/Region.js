@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
-    //format 1
+const fromData = {
     'na': 'North_America',
     'latam': 'Latin_America',
     'br': 'Brazil',
@@ -9,15 +8,28 @@ exports.default = {
     'eu': 'Europe',
     'kr': 'Korea',
     'ap': 'Asia_Pacific',
-    data: {
-        //format 2
-        'North_America': 'na',
-        'Latin_America': 'latam',
-        'Brazil': 'br',
-        'Public_Beta_Environment': 'pbe',
-        'Europe': 'eu',
-        'Korea': 'kr',
-        'Asia_Pacific': 'ap',
-    },
+};
+const toData = {
+    North_America: 'na',
+    Latin_America: 'latam',
+    Brazil: 'br',
+    Public_Beta_Environment: 'pbe',
+    Europe: 'eu',
+    Korea: 'kr',
+    Asia_Pacific: 'ap',
+};
+//exchange
+function toString(x) {
+    return toData[x];
+}
+function fromString(x) {
+    return fromData[x];
+}
+//export
+exports.default = {
+    from: fromData,
+    to: toData,
+    toString,
+    fromString,
 };
 //# sourceMappingURL=Region.js.map

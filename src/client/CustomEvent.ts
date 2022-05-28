@@ -1,6 +1,6 @@
 //interface
 
-interface ValorantAPIError {
+interface ValorantApiError {
     errorCode: string;
     message: string;
     data: any;
@@ -14,7 +14,10 @@ class CustomEvent {
         [key: string]: Array<Function>;
     };
 
-    constructor() {
+    /**
+     * Class Constructor
+     */
+    public constructor() {
         this.EventController = {};
     }
 
@@ -80,4 +83,4 @@ class CustomEvent {
 
 //export
 export { CustomEvent }
-export type { ValorantAPIError }
+export type { ValorantApiError }

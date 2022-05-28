@@ -1,5 +1,5 @@
 import _Region from "../resources/Region";
-interface ValorantAPIRegion {
+interface ValorantApiRegion {
     data: {
         base: string;
         api: string;
@@ -23,26 +23,21 @@ declare class ValRegion {
     private server;
     private riotRegion;
     /**
-    * @param {String} region Region
-    * @returns {IValRegion}
-    */
-    constructor(region?: keyof typeof _Region);
+     * Class Constructor
+     * @param {String} region Region
+     */
+    constructor(region?: keyof typeof _Region.from);
     /**
      *
-     * @returns {ValorantAPIRegion}
+     * @returns {ValorantApiRegion}
      */
-    toJSON(): ValorantAPIRegion;
+    toJSON(): ValorantApiRegion;
     /**
      * @param {String} region Region
-     * @returns {String}
+     * @returns {ValorantApiRegion}
      */
-    static toString(region: keyof typeof _Region.data): keyof typeof _Region;
-    /**
-     * @param {String} region Region
-     * @returns {ValorantAPIRegion}
-     */
-    static fromString(region: keyof typeof _Region.data): ValorantAPIRegion;
+    static fromString(region: keyof typeof _Region.to): ValorantApiRegion;
 }
 export { ValRegion };
-export type { ValorantAPIRegion };
+export type { ValorantApiRegion };
 //# sourceMappingURL=ValRegion.d.ts.map

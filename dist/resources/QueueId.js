@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
-    //format 1
+const fromData = {
     'unrated': 'Unrated',
     'competitive': 'Competitive',
     'spikerush': 'Spikerush',
@@ -12,16 +11,29 @@ exports.default = {
     '': 'Custom',
     //change when have new map
     'newmap': 'Fracture',
-    data: {
-        //format 2
-        Unrated: 'unrated',
-        Competitive: 'competitive',
-        Spikerush: 'spikerush',
-        Deathmatch: 'deathmatch',
-        Escalation: 'ggteam',
-        Replication: 'onefa',
-        Snowball_Fight: 'snowball',
-        Custom: '',
-    },
+};
+const toData = {
+    Unrated: 'unrated',
+    Competitive: 'competitive',
+    Spikerush: 'spikerush',
+    Deathmatch: 'deathmatch',
+    Escalation: 'ggteam',
+    Replication: 'onefa',
+    Snowball_Fight: 'snowball',
+    Custom: '',
+};
+//exchange
+function toString(x) {
+    return toData[x];
+}
+function fromString(x) {
+    return fromData[x];
+}
+//export
+exports.default = {
+    from: fromData,
+    to: toData,
+    toString,
+    fromString,
 };
 //# sourceMappingURL=QueueId.js.map
