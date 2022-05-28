@@ -21,7 +21,7 @@ interface ValorantApiRequestData {
 //class
 
 class AxiosClient extends CustomEvent {
-    private theAxios: Axios;
+    public theAxios: Axios;
 
     /**
      * Class Constructor

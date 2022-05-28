@@ -1,5 +1,5 @@
 import { CustomEvent, type ValorantApiError } from "./CustomEvent";
-import { type AxiosRequestConfig, type AxiosError } from 'axios';
+import { type Axios, type AxiosRequestConfig, type AxiosError } from 'axios';
 interface ValorantApiRequestResponse<ValorantApiRequestReturn = any> {
     isError: boolean;
     data: ValorantApiRequestReturn;
@@ -13,7 +13,7 @@ interface ValorantApiRequestData {
     config: AxiosRequestConfig;
 }
 declare class AxiosClient extends CustomEvent {
-    private theAxios;
+    theAxios: Axios;
     /**
      * Class Constructor
      * @param {AxiosRequestConfig} config Config
