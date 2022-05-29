@@ -7,6 +7,7 @@ declare const fromData: {
     onefa: string;
     snowball: string;
     '': string;
+    tournamentmode: string;
     newmap: string;
 };
 declare const toData: {
@@ -18,6 +19,7 @@ declare const toData: {
     Replication: string;
     Snowball_Fight: string;
     Custom: string;
+    Custom_Tournament: string;
 };
 declare function toString(x: keyof typeof toData): keyof typeof fromData;
 declare function fromString(x: keyof typeof fromData): keyof typeof toData;
@@ -31,6 +33,7 @@ declare const _default: {
         onefa: string;
         snowball: string;
         '': string;
+        tournamentmode: string;
         newmap: string;
     };
     to: {
@@ -42,6 +45,7 @@ declare const _default: {
         Replication: string;
         Snowball_Fight: string;
         Custom: string;
+        Custom_Tournament: string;
     };
     toString: typeof toString;
     fromString: typeof fromString;

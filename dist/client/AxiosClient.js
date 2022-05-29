@@ -24,7 +24,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
      */
     constructor(config = {}) {
         super();
-        if (!config.timeout) {
+        if (config.timeout && isNaN(config.timeout)) {
             config.timeout = 60000; // 1 minute (60 * 1000)
         }
         this.theAxios = axios_1.default.create(config);

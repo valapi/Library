@@ -9,6 +9,7 @@ const fromData = {
     'onefa': 'Replication',
     'snowball': 'Snowball_Fight',
     '': 'Custom',
+    'tournamentmode': 'Custom_Tournament',
     //change when have new map
     'newmap': 'Fracture',
 };
@@ -21,6 +22,7 @@ const toData = {
     Replication: 'onefa',
     Snowball_Fight: 'snowball',
     Custom: '',
+    Custom_Tournament: 'tournamentmode',
 };
 //exchange
 function toString(x) {

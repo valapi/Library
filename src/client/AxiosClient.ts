@@ -30,7 +30,7 @@ class AxiosClient extends CustomEvent {
     public constructor(config: AxiosRequestConfig = {}) {
         super();
 
-        if(!config.timeout){
+        if(config.timeout && isNaN(config.timeout)){
             config.timeout = 60000; // 1 minute (60 * 1000)
         }
 
