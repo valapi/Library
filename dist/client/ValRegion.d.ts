@@ -24,7 +24,7 @@ declare class ValRegion {
     private riotRegion;
     /**
      * Class Constructor
-     * @param {String} region Region
+     * @param {String} region Region (default: na)
      */
     constructor(region?: keyof typeof _Region.from);
     /**

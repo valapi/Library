@@ -10,7 +10,7 @@ const Region_1 = __importDefault(require("../resources/Region"));
 class ValRegion {
     /**
      * Class Constructor
-     * @param {String} region Region
+     * @param {String} region Region (default: na)
      */
     constructor(region = 'na') {
         this.base = region;

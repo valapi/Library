@@ -32,7 +32,7 @@ class ValRegion {
 
     /**
      * Class Constructor
-     * @param {String} region Region
+     * @param {String} region Region (default: na)
      */
     public constructor(region:keyof typeof _Region.from = 'na') {
         this.base = region;
