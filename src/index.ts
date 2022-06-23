@@ -3,7 +3,7 @@
 import HTTP_Response from "./HTTP_Response";
 
 //client
-import { AxiosClient, type ValorantApiRequestResponse, ValorantApiRequestMethod, ValorantApiRequestData, ValorantApiRequestEvent } from "./client/AxiosClient";
+import { AxiosClient, type ValorantApiRequestResponse, type ValorantApiRequestMethod, type ValorantApiRequestData, type ValorantApiRequestEvent } from "./client/AxiosClient";
 import { CustomEvent, type ValorantApiError } from "./client/CustomEvent";
 import { ValRegion, type ValorantApiRegion } from "./client/ValRegion";
 
@@ -22,7 +22,7 @@ export {
     HTTP_Response as ValHttpResponse,
 
     //client
-    AxiosClient as ValRequestClient, ValorantApiRequestResponse, ValorantApiRequestMethod, ValorantApiRequestData, ValorantApiRequestEvent,
+    AxiosClient as ValRequestClient, type ValorantApiRequestResponse, type ValorantApiRequestMethod, type ValorantApiRequestData, type ValorantApiRequestEvent,
     CustomEvent as ValEvent, type ValorantApiError,
     ValRegion, type ValorantApiRegion,
 

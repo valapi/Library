@@ -9,7 +9,7 @@ interface ValorantApiRequestResponse<ValorantApiRequestReturn = any> {
     error?: AxiosError;
 }
 
-type ValorantApiRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' ;
+type ValorantApiRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete';
 
 interface ValorantApiRequestData {
     method: ValorantApiRequestMethod;
@@ -30,7 +30,7 @@ class AxiosClient extends CustomEvent {
     public constructor(config: AxiosRequestConfig = {}) {
         super();
 
-        if(config.timeout && isNaN(config.timeout)){
+        if (config.timeout && isNaN(config.timeout)) {
             config.timeout = 60000; // 1 minute (60 * 1000)
         }
 
@@ -43,7 +43,7 @@ class AxiosClient extends CustomEvent {
      * @param {AxiosError} error Axios Error
      * @returns {ValorantApiRequestResponse}
      */
-     private errorHandler(error:AxiosError):ValorantApiRequestResponse<any> {
+    private errorHandler(error: AxiosError): ValorantApiRequestResponse<any> {
         //event
         this.emit('error', {
             errorCode: 'ValorantAPI_Request_Error',
@@ -52,7 +52,7 @@ class AxiosClient extends CustomEvent {
         })
 
         //data
-        if(error.response && error.response.data){
+        if (error.response && error.response.data) {
             return {
                 isError: error.isAxiosError,
                 data: error.response.data,
@@ -60,7 +60,7 @@ class AxiosClient extends CustomEvent {
             }
         }
 
-        if(error.response && error.response.status && error.response.statusText){
+        if (error.response && error.response.status && error.response.statusText) {
             return {
                 isError: error.isAxiosError,
                 data: {
@@ -79,18 +79,18 @@ class AxiosClient extends CustomEvent {
             },
             error: error,
         }
-     }
+    }
 
     /**
     * @param {String} url URL
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
-     public async get(url:string, config:AxiosRequestConfig = {}):Promise<ValorantApiRequestResponse<any>> {
+    public async get(url: string, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
         let _error = false;
 
-        const RequestData:ValorantApiRequestData = {
+        const RequestData: ValorantApiRequestData = {
             method: 'get',
             url: url,
             config: config,
@@ -98,11 +98,11 @@ class AxiosClient extends CustomEvent {
         this.emit('request', RequestData);
 
         //request
-        const _request:any = await this.theAxios.get(url, config).catch((error:AxiosError):any => {
+        const _request: any = await this.theAxios.get(url, config).catch((error: AxiosError): any => {
             return this.errorHandler(error);
-            
-        }).then((response:AxiosResponse) => {
-            if(_error){
+
+        }).then((response: AxiosResponse) => {
+            if (_error) {
                 return response;
             } else {
                 return response.data;
@@ -122,11 +122,11 @@ class AxiosClient extends CustomEvent {
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
-     public async post(url:string, body:object = {}, config:AxiosRequestConfig = {}):Promise<ValorantApiRequestResponse<any>> {
+    public async post(url: string, body: object = {}, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
         let _error = false;
 
-        const RequestData:ValorantApiRequestData = {
+        const RequestData: ValorantApiRequestData = {
             method: 'post',
             url: url,
             body: body,
@@ -135,11 +135,11 @@ class AxiosClient extends CustomEvent {
         this.emit('request', RequestData);
 
         //request
-        const _request:any = await this.theAxios.post(url, body, config).catch((error:AxiosError):any => {
+        const _request: any = await this.theAxios.post(url, body, config).catch((error: AxiosError): any => {
             return this.errorHandler(error);
-            
-        }).then((response:AxiosResponse) => {
-            if(_error){
+
+        }).then((response: AxiosResponse) => {
+            if (_error) {
                 return response;
             } else {
                 return response.data;
@@ -159,11 +159,11 @@ class AxiosClient extends CustomEvent {
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
-     public async put(url:string, body:object = {}, config:AxiosRequestConfig = {}):Promise<ValorantApiRequestResponse<any>> {
+    public async put(url: string, body: object = {}, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
         let _error = false;
 
-        const RequestData:ValorantApiRequestData = {
+        const RequestData: ValorantApiRequestData = {
             method: 'put',
             url: url,
             body: body,
@@ -172,11 +172,11 @@ class AxiosClient extends CustomEvent {
         this.emit('request', RequestData);
 
         //request
-        const _request:any = await this.theAxios.put(url, body, config).catch((error:AxiosError):any => {
+        const _request: any = await this.theAxios.put(url, body, config).catch((error: AxiosError): any => {
             return this.errorHandler(error);
-            
-        }).then((response:AxiosResponse) => {
-            if(_error){
+
+        }).then((response: AxiosResponse) => {
+            if (_error) {
                 return response;
             } else {
                 return response.data;
@@ -196,11 +196,11 @@ class AxiosClient extends CustomEvent {
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
-     public async patch(url:string, body:object = {}, config:AxiosRequestConfig = {}):Promise<ValorantApiRequestResponse<any>> {
+    public async patch(url: string, body: object = {}, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
         let _error = false;
 
-        const RequestData:ValorantApiRequestData = {
+        const RequestData: ValorantApiRequestData = {
             method: 'patch',
             url: url,
             body: body,
@@ -209,11 +209,11 @@ class AxiosClient extends CustomEvent {
         this.emit('request', RequestData);
 
         //request
-        const _request:any = await this.theAxios.patch(url, body, config).catch((error:AxiosError):any => {
+        const _request: any = await this.theAxios.patch(url, body, config).catch((error: AxiosError): any => {
             return this.errorHandler(error);
-            
-        }).then((response:AxiosResponse) => {
-            if(_error){
+
+        }).then((response: AxiosResponse) => {
+            if (_error) {
                 return response;
             } else {
                 return response.data;
@@ -232,11 +232,11 @@ class AxiosClient extends CustomEvent {
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
-     public async delete(url:string, config:AxiosRequestConfig = {}):Promise<ValorantApiRequestResponse<any>> {
+    public async delete(url: string, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
         let _error = false;
 
-        const RequestData:ValorantApiRequestData = {
+        const RequestData: ValorantApiRequestData = {
             method: 'delete',
             url: url,
             config: config,
@@ -244,11 +244,11 @@ class AxiosClient extends CustomEvent {
         this.emit('request', RequestData);
 
         //request
-        const _request:any = await this.theAxios.post(url, config).catch((error:AxiosError):any => {
+        const _request: any = await this.theAxios.post(url, config).catch((error: AxiosError): any => {
             return this.errorHandler(error);
-            
-        }).then((response:AxiosResponse) => {
-            if(_error){
+
+        }).then((response: AxiosResponse) => {
+            if (_error) {
                 return response;
             } else {
                 return response.data;

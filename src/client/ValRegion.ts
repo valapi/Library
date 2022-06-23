@@ -25,19 +25,19 @@ interface ValorantApiRegion {
 //class
 
 class ValRegion {
-    private base:keyof typeof _Region | string;
-    private region:any;
-    private server:any;
-    private riotRegion:any;
+    private base: keyof typeof _Region | string;
+    private region: any;
+    private server: any;
+    private riotRegion: any;
 
     /**
      * Class Constructor
      * @param {String} region Region (default: na)
      */
-    public constructor(region:keyof typeof _Region.from = 'na') {
+    public constructor(region: keyof typeof _Region.from = 'na') {
         this.base = region;
 
-        if(!_Region.from[region]) {
+        if (!_Region.from[region]) {
             throw new Error(`Region '${String(this.base)}' not found`);
         }
 
@@ -86,7 +86,7 @@ class ValRegion {
      * 
      * @returns {ValorantApiRegion}
      */
-     public toJSON():ValorantApiRegion {
+    public toJSON(): ValorantApiRegion {
         return {
             data: {
                 base: this.base,
@@ -111,7 +111,7 @@ class ValRegion {
      * @param {String} region Region
      * @returns {ValorantApiRegion}
      */
-     public static fromString(region: keyof typeof _Region.to):ValorantApiRegion {
+    public static fromString(region: keyof typeof _Region.to): ValorantApiRegion {
         const _region = new ValRegion(_Region.toString(region));
         return _region.toJSON();
     }

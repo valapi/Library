@@ -10,7 +10,7 @@ const fromData = {
     'tournamentmode': 'Custom_Tournament',
 
     //change when have new map
-    'newmap': 'Fracture',
+    'newmap': 'Pearl',
 };
 
 const toData = {
