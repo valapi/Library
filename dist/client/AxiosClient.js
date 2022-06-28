@@ -1,21 +1,10 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AxiosClient = void 0;
+const tslib_1 = require("tslib");
 //import
 const CustomEvent_1 = require("./CustomEvent");
-const axios_1 = __importDefault(require("axios"));
+const axios_1 = tslib_1.__importDefault(require("axios"));
 //class
 class AxiosClient extends CustomEvent_1.CustomEvent {
     /**
@@ -75,7 +64,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     get(url, config = {}) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
             let _error = false;
             const RequestData = {
@@ -109,7 +98,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     post(url, body = {}, config = {}) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
             let _error = false;
             const RequestData = {
@@ -144,7 +133,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     put(url, body = {}, config = {}) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
             let _error = false;
             const RequestData = {
@@ -179,7 +168,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     patch(url, body = {}, config = {}) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
             let _error = false;
             const RequestData = {
@@ -213,7 +202,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     delete(url, config = {}) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
             let _error = false;
             const RequestData = {
