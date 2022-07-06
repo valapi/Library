@@ -14,7 +14,6 @@ Documentation Website: [Click Here](https://valapi.github.io/docs/)
 - *Special Thanks*
   - [Techchrism](https://github.com/techchrism/valorant-api-docs) (API Docs)
   - [RumbleMike](https://github.com/RumbleMike/ValorantClientAPI) (API Docs)
-  - [Officer](https://valorant-api.com/) (valorant-api.com)
   - [Valorant Community Developer Discord](https://discord.gg/sCgvpXJfEE)
   - [Play Valorant](https://playvalorant.com/) (VALORANT)
   - [developer.riotgames.com](https://developer.riotgames.com/) (Official Api From Riot Games)
