@@ -82,5 +82,6 @@ class CustomEvent {
 }
 
 //export
+
 export { CustomEvent }
 export type { ValorantApiError }

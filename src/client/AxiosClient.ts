@@ -1,8 +1,10 @@
 //import
+
 import { CustomEvent, type ValorantApiError } from "./CustomEvent";
 import axios, { type Axios, type AxiosRequestConfig, type AxiosError, type AxiosResponse } from 'axios';
 
 //interface
+
 interface ValorantApiRequestResponse<ValorantApiRequestReturn = any> {
     isError: boolean;
     data: ValorantApiRequestReturn;
@@ -279,5 +281,6 @@ declare interface AxiosClient {
 }
 
 //export
+
 export { AxiosClient };
 export type { ValorantApiRequestResponse, ValorantApiRequestMethod, ValorantApiRequestData, ValorantApiRequestEvent };

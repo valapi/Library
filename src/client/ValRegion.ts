@@ -1,4 +1,5 @@
 //import
+
 import _Region from "../resources/Region";
 
 //interface
@@ -118,5 +119,6 @@ class ValRegion {
 }
 
 //export
+
 export { ValRegion };
 export type { ValorantApiRegion };

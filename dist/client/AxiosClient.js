@@ -1,8 +1,8 @@
 "use strict";
+//import
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AxiosClient = void 0;
 const tslib_1 = require("tslib");
-//import
 const CustomEvent_1 = require("./CustomEvent");
 const axios_1 = tslib_1.__importDefault(require("axios"));
 //class

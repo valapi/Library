@@ -1,8 +1,8 @@
 "use strict";
+//import
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ValRegion = void 0;
 const tslib_1 = require("tslib");
-//import
 const Region_1 = tslib_1.__importDefault(require("../resources/Region"));
 //class
 class ValRegion {
