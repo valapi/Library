@@ -8,4 +8,3 @@ import QueueId from "./resources/QueueId";
 import Region from "./resources/Region";
 import toUft8 from "./utils/toUft8";
 export { HTTP_Response as ValHttpResponse, AxiosClient as ValRequestClient, type ValorantApiRequestResponse, type ValorantApiRequestMethod, type ValorantApiRequestData, type ValorantApiRequestEvent, CustomEvent as ValEvent, type ValorantApiError, ValRegion, type ValorantApiRegion, ItemTypeId, Locale, QueueId, Region, toUft8 };
-//# sourceMappingURL=index.d.ts.map

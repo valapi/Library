@@ -72,4 +72,3 @@ declare interface AxiosClient {
 }
 export { AxiosClient };
 export type { ValorantApiRequestResponse, ValorantApiRequestMethod, ValorantApiRequestData, ValorantApiRequestEvent };
-//# sourceMappingURL=AxiosClient.d.ts.map

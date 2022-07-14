@@ -41,4 +41,3 @@ declare const _default: {
     fromString: typeof fromString;
 };
 export default _default;
-//# sourceMappingURL=Region.d.ts.map

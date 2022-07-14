@@ -65,7 +65,7 @@ class CustomEvent {
     }
 
     /**
-     * 
+     * Beta
      * @param {String} name Name
      * @param {Function} callback Call Back Function
      */

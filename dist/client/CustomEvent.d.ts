@@ -30,7 +30,7 @@ declare class CustomEvent {
      */
     on(name: string, callback: Function): void;
     /**
-     *
+     * Beta
      * @param {String} name Name
      * @param {Function} callback Call Back Function
      */
@@ -38,4 +38,3 @@ declare class CustomEvent {
 }
 export { CustomEvent };
 export type { ValorantApiError };
-//# sourceMappingURL=CustomEvent.d.ts.map

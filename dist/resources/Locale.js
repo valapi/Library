@@ -57,4 +57,3 @@ exports.default = {
     toString,
     fromString,
 };
-//# sourceMappingURL=Locale.js.map

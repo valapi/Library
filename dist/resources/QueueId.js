@@ -38,4 +38,3 @@ exports.default = {
     toString,
     fromString,
 };
-//# sourceMappingURL=QueueId.js.map

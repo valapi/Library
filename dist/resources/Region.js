@@ -32,4 +32,3 @@ exports.default = {
     toString,
     fromString,
 };
-//# sourceMappingURL=Region.js.map

@@ -35,4 +35,3 @@ exports.default = {
     toString,
     fromString,
 };
-//# sourceMappingURL=ItemTypeId.js.map

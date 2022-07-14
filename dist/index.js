@@ -24,4 +24,3 @@ exports.Region = Region_1.default;
 //utils
 const toUft8_1 = tslib_1.__importDefault(require("./utils/toUft8"));
 exports.toUft8 = toUft8_1.default;
-//# sourceMappingURL=index.js.map

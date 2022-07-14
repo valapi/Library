@@ -231,4 +231,3 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     }
 }
 exports.AxiosClient = AxiosClient;
-//# sourceMappingURL=AxiosClient.js.map

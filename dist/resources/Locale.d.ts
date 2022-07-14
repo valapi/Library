@@ -89,4 +89,3 @@ declare const _default: {
     fromString: typeof fromString;
 };
 export default _default;
-//# sourceMappingURL=Locale.d.ts.map

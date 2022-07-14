@@ -40,4 +40,3 @@ declare class ValRegion {
 }
 export { ValRegion };
 export type { ValorantApiRegion };
-//# sourceMappingURL=ValRegion.d.ts.map

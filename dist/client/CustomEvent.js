@@ -51,7 +51,7 @@ class CustomEvent {
         this.EventController[name].push(callback);
     }
     /**
-     *
+     * Beta
      * @param {String} name Name
      * @param {Function} callback Call Back Function
      */
@@ -65,4 +65,3 @@ class CustomEvent {
     }
 }
 exports.CustomEvent = CustomEvent;
-//# sourceMappingURL=CustomEvent.js.map

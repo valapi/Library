@@ -9,4 +9,3 @@ function toUft8(data, unicode = 'base64') {
     return Buffer.from(data).toString(unicode);
 }
 exports.default = toUft8;
-//# sourceMappingURL=toUft8.js.map

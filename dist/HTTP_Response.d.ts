@@ -64,4 +64,3 @@ declare const _default: {
     511: string;
 };
 export default _default;
-//# sourceMappingURL=HTTP_Response.d.ts.map
