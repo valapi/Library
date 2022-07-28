@@ -1,7 +1,7 @@
 "use strict";
 // import //
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toUft8 = exports.Region = exports.QueueId = exports.Locale = exports.ItemTypeId = exports.ValRegion = exports.ValEvent = exports.ValRequestClient = exports.ValHttpResponse = void 0;
+exports.fromUft8 = exports.toUft8 = exports.Region = exports.QueueId = exports.Locale = exports.ItemTypeId = exports.ValRegion = exports.ValEvent = exports.ValRequestClient = exports.ValHttpResponse = void 0;
 const tslib_1 = require("tslib");
 const HTTP_Response_1 = tslib_1.__importDefault(require("./HTTP_Response"));
 exports.ValHttpResponse = HTTP_Response_1.default;
@@ -22,5 +22,6 @@ exports.QueueId = QueueId_1.default;
 const Region_1 = tslib_1.__importDefault(require("./resources/Region"));
 exports.Region = Region_1.default;
 //utils
-const toUft8_1 = tslib_1.__importDefault(require("./utils/toUft8"));
-exports.toUft8 = toUft8_1.default;
+const Uft8_1 = require("./utils/Uft8");
+Object.defineProperty(exports, "toUft8", { enumerable: true, get: function () { return Uft8_1.toUft8; } });
+Object.defineProperty(exports, "fromUft8", { enumerable: true, get: function () { return Uft8_1.fromUft8; } });

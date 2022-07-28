@@ -3,9 +3,10 @@ interface ValorantApiError {
     message: string;
     data: any;
 }
+declare type ValorantCustomEventFunction = (args: any) => any;
 declare class CustomEvent {
     protected EventController: {
-        [key: string]: Array<Function>;
+        [key: string]: Array<ValorantCustomEventFunction>;
     };
     /**
      * Class Constructor
@@ -13,28 +14,28 @@ declare class CustomEvent {
     constructor();
     /**
      *
-     * @param {String} name Name
+     * @param {string} name Name
      * @param {any} args Data
      */
     emit(name: string, ...args: Array<any>): void;
     /**
      *
-     * @param {String} name Name
+     * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    off(name: string, callback?: Function): void;
+    off(name: string, callback?: (ValorantCustomEventFunction)): void;
     /**
      *
-     * @param {String} name Name
+     * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    on(name: string, callback: Function): void;
+    on(name: string, callback: ValorantCustomEventFunction): void;
     /**
      * Beta
-     * @param {String} name Name
+     * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    once(name: string, callback: Function): void;
+    once(name: string, callback: ValorantCustomEventFunction): void;
 }
 export { CustomEvent };
-export type { ValorantApiError };
+export type { ValorantApiError, ValorantCustomEventFunction };

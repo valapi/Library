@@ -59,14 +59,13 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
         };
     }
     /**
-    * @param {String} url URL
+    * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     get(url, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
-            let _error = false;
             const RequestData = {
                 method: 'get',
                 url: url,
@@ -77,30 +76,24 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
             const _request = yield this.theAxios.get(url, config).catch((error) => {
                 return this.errorHandler(error);
             }).then((response) => {
-                if (_error) {
-                    return response;
-                }
-                else {
-                    return response.data;
-                }
+                return response.data;
             });
             //return
             return {
-                isError: _error,
+                isError: false,
                 data: _request,
             };
         });
     }
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     post(url, body = {}, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
-            let _error = false;
             const RequestData = {
                 method: 'post',
                 url: url,
@@ -112,30 +105,24 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
             const _request = yield this.theAxios.post(url, body, config).catch((error) => {
                 return this.errorHandler(error);
             }).then((response) => {
-                if (_error) {
-                    return response;
-                }
-                else {
-                    return response.data;
-                }
+                return response.data;
             });
             //return
             return {
-                isError: _error,
+                isError: false,
                 data: _request,
             };
         });
     }
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     put(url, body = {}, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
-            let _error = false;
             const RequestData = {
                 method: 'put',
                 url: url,
@@ -147,30 +134,24 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
             const _request = yield this.theAxios.put(url, body, config).catch((error) => {
                 return this.errorHandler(error);
             }).then((response) => {
-                if (_error) {
-                    return response;
-                }
-                else {
-                    return response.data;
-                }
+                return response.data;
             });
             //return
             return {
-                isError: _error,
+                isError: false,
                 data: _request,
             };
         });
     }
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     patch(url, body = {}, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
-            let _error = false;
             const RequestData = {
                 method: 'patch',
                 url: url,
@@ -182,29 +163,23 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
             const _request = yield this.theAxios.patch(url, body, config).catch((error) => {
                 return this.errorHandler(error);
             }).then((response) => {
-                if (_error) {
-                    return response;
-                }
-                else {
-                    return response.data;
-                }
+                return response.data;
             });
             //return
             return {
-                isError: _error,
+                isError: false,
                 data: _request,
             };
         });
     }
     /**
-    * @param {String} url URL
+    * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     delete(url, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             //setup
-            let _error = false;
             const RequestData = {
                 method: 'delete',
                 url: url,
@@ -215,16 +190,11 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
             const _request = yield this.theAxios.post(url, config).catch((error) => {
                 return this.errorHandler(error);
             }).then((response) => {
-                if (_error) {
-                    return response;
-                }
-                else {
-                    return response.data;
-                }
+                return response.data;
             });
             //return
             return {
-                isError: _error,
+                isError: false,
                 data: _request,
             };
         });

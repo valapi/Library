@@ -12,19 +12,19 @@ class CustomEvent {
     }
     /**
      *
-     * @param {String} name Name
+     * @param {string} name Name
      * @param {any} args Data
      */
     emit(name, ...args) {
         if (this.EventController[name]) {
             this.EventController[name].forEach((callback) => {
-                callback(...args);
+                callback(args);
             });
         }
     }
     /**
      *
-     * @param {String} name Name
+     * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
     off(name, callback) {
@@ -41,7 +41,7 @@ class CustomEvent {
     }
     /**
      *
-     * @param {String} name Name
+     * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
     on(name, callback) {
@@ -52,13 +52,13 @@ class CustomEvent {
     }
     /**
      * Beta
-     * @param {String} name Name
+     * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
     once(name, callback) {
         const self = this;
         const onceCallback = function (...args) {
-            callback(...args);
+            callback(args);
             self.off(name, onceCallback);
         };
         this.on(name, onceCallback);

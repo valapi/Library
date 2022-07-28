@@ -9,7 +9,7 @@ declare type ValorantApiRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'dele
 interface ValorantApiRequestData {
     method: ValorantApiRequestMethod;
     url: string;
-    body?: Object;
+    body?: object;
     config: AxiosRequestConfig;
 }
 declare class AxiosClient extends CustomEvent {
@@ -26,34 +26,34 @@ declare class AxiosClient extends CustomEvent {
      */
     private errorHandler;
     /**
-    * @param {String} url URL
+    * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     get(url: string, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     post(url: string, body?: object, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     put(url: string, body?: object, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     patch(url: string, body?: object, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
     /**
-    * @param {String} url URL
+    * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */

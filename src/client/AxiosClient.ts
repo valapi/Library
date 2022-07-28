@@ -16,7 +16,7 @@ type ValorantApiRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete';
 interface ValorantApiRequestData {
     method: ValorantApiRequestMethod;
     url: string;
-    body?: Object;
+    body?: object;
     config: AxiosRequestConfig;
 }
 
@@ -51,7 +51,7 @@ class AxiosClient extends CustomEvent {
             errorCode: 'ValorantAPI_Request_Error',
             message: error.message,
             data: error,
-        })
+        });
 
         //data
         if (error.response && error.response.data) {
@@ -59,7 +59,7 @@ class AxiosClient extends CustomEvent {
                 isError: error.isAxiosError,
                 data: error.response.data,
                 error: error,
-            }
+            };
         }
 
         if (error.response && error.response.status && error.response.statusText) {
@@ -70,7 +70,7 @@ class AxiosClient extends CustomEvent {
                     message: error.response.statusText,
                 },
                 error: error,
-            }
+            };
         }
 
         return {
@@ -80,18 +80,16 @@ class AxiosClient extends CustomEvent {
                 message: error.message,
             },
             error: error,
-        }
+        };
     }
 
     /**
-    * @param {String} url URL
+    * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     public async get(url: string, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
-        let _error = false;
-
         const RequestData: ValorantApiRequestData = {
             method: 'get',
             url: url,
@@ -104,30 +102,24 @@ class AxiosClient extends CustomEvent {
             return this.errorHandler(error);
 
         }).then((response: AxiosResponse) => {
-            if (_error) {
-                return response;
-            } else {
-                return response.data;
-            }
+            return response.data;
         });
 
         //return
         return {
-            isError: _error,
+            isError: false,
             data: _request,
         };
     }
 
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     public async post(url: string, body: object = {}, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
-        let _error = false;
-
         const RequestData: ValorantApiRequestData = {
             method: 'post',
             url: url,
@@ -141,30 +133,24 @@ class AxiosClient extends CustomEvent {
             return this.errorHandler(error);
 
         }).then((response: AxiosResponse) => {
-            if (_error) {
-                return response;
-            } else {
-                return response.data;
-            }
+            return response.data;
         });
 
         //return
         return {
-            isError: _error,
+            isError: false,
             data: _request,
         };
     }
 
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     public async put(url: string, body: object = {}, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
-        let _error = false;
-
         const RequestData: ValorantApiRequestData = {
             method: 'put',
             url: url,
@@ -178,30 +164,24 @@ class AxiosClient extends CustomEvent {
             return this.errorHandler(error);
 
         }).then((response: AxiosResponse) => {
-            if (_error) {
-                return response;
-            } else {
-                return response.data;
-            }
+            return response.data;
         });
 
         //return
         return {
-            isError: _error,
+            isError: false,
             data: _request,
         };
     }
 
     /**
-    * @param {String} url URL
-    * @param {Object} body Body
+    * @param {string} url URL
+    * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     public async patch(url: string, body: object = {}, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
-        let _error = false;
-
         const RequestData: ValorantApiRequestData = {
             method: 'patch',
             url: url,
@@ -215,29 +195,23 @@ class AxiosClient extends CustomEvent {
             return this.errorHandler(error);
 
         }).then((response: AxiosResponse) => {
-            if (_error) {
-                return response;
-            } else {
-                return response.data;
-            }
+            return response.data;
         });
 
         //return
         return {
-            isError: _error,
+            isError: false,
             data: _request,
         };
     }
 
     /**
-    * @param {String} url URL
+    * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
     * @returns {Promise<ValorantApiRequestResponse>}
     */
     public async delete(url: string, config: AxiosRequestConfig = {}): Promise<ValorantApiRequestResponse<any>> {
         //setup
-        let _error = false;
-
         const RequestData: ValorantApiRequestData = {
             method: 'delete',
             url: url,
@@ -250,16 +224,12 @@ class AxiosClient extends CustomEvent {
             return this.errorHandler(error);
 
         }).then((response: AxiosResponse) => {
-            if (_error) {
-                return response;
-            } else {
-                return response.data;
-            }
+            return response.data;
         });
 
         //return
         return {
-            isError: _error,
+            isError: false,
             data: _request,
         };
     }

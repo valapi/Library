@@ -4,7 +4,7 @@ import HTTP_Response from "./HTTP_Response";
 
 //client
 import { AxiosClient, type ValorantApiRequestResponse, type ValorantApiRequestMethod, type ValorantApiRequestData, type ValorantApiRequestEvent } from "./client/AxiosClient";
-import { CustomEvent, type ValorantApiError } from "./client/CustomEvent";
+import { CustomEvent, type ValorantApiError, type ValorantCustomEventFunction } from "./client/CustomEvent";
 import { ValRegion, type ValorantApiRegion } from "./client/ValRegion";
 
 //resources
@@ -14,7 +14,7 @@ import QueueId from "./resources/QueueId";
 import Region from "./resources/Region";
 
 //utils
-import toUft8 from "./utils/toUft8";
+import { toUft8, fromUft8 } from "./utils/Uft8";
 
 // export //
 
@@ -23,7 +23,7 @@ export {
 
     //client
     AxiosClient as ValRequestClient, type ValorantApiRequestResponse, type ValorantApiRequestMethod, type ValorantApiRequestData, type ValorantApiRequestEvent,
-    CustomEvent as ValEvent, type ValorantApiError,
+    CustomEvent as ValEvent, type ValorantApiError, type ValorantCustomEventFunction,
     ValRegion, type ValorantApiRegion,
 
     //resources
@@ -33,5 +33,5 @@ export {
     Region,
 
     //utils
-    toUft8
-}
+    toUft8, fromUft8
+};
