@@ -1,7 +1,13 @@
+//interface
 export namespace Locale {
+    export type String = keyof typeof Locale.from;
+    export type Name = keyof typeof Locale.to;
+}
+
+export class Locale {
     //data
 
-    export declare const from: {
+    public static readonly from = {
         "ar-AE": "Arabic_UAE",
         "de-DE": "German_Germany",
         "en-GB": "English_United_Kingdom", //not support valorant-api.com
@@ -23,7 +29,7 @@ export namespace Locale {
         "zh-TW": "Chinese_Taiwan",
     };
 
-    export declare const to: {
+    public static readonly to = {
         Arabic_UAE: "ar-AE",
         German_Germany: "de-DE",
         English_United_Kingdom: "en-GB",
@@ -45,18 +51,13 @@ export namespace Locale {
         Chinese_Taiwan: "zh-TW",
     };
 
-    //interface
-
-    export type String = keyof typeof Locale.from;
-    export type Name = keyof typeof Locale.to;
-
     //exchange
 
-    export function toString(x: Locale.Name): Locale.String {
-        return Locale.to[x];
+    public static toString(x: Locale.Name): Locale.String {
+        return Locale.to[x] as Locale.String;
     }
 
-    export function fromString(x: Locale.String): Locale.Name {
-        return Locale.from[x];
+    public static fromString(x: Locale.String): Locale.Name {
+        return Locale.from[x] as Locale.Name;
     }
 }

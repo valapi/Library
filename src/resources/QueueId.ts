@@ -1,7 +1,16 @@
+//interface
 export namespace QueueId {
+    export type String = keyof typeof QueueId.from;
+    export type Name = keyof typeof QueueId.to;
+}
+
+export class QueueId {
+    //change when have new map
+    private static readonly NewmapName = 'Pearl';
+
     //data
 
-    export declare const from: {
+    public static readonly from = {
         'unrated': 'Unrated',
         'competitive': 'Competitive',
         'spikerush': 'Spikerush',
@@ -12,11 +21,10 @@ export namespace QueueId {
         '': 'Custom',
         'tournamentmode': 'Custom_Tournament',
 
-        //change when have new map
-        'newmap': 'Pearl',
+        'newmap': QueueId.NewmapName,
     };
 
-    export declare const to: {
+    public static readonly to = {
         Unrated: 'unrated',
         Competitive: 'competitive',
         Spikerush: 'spikerush',
@@ -28,18 +36,13 @@ export namespace QueueId {
         Custom_Tournament: 'tournamentmode',
     };
 
-    //interface
-
-    export type String = keyof typeof QueueId.from;
-    export type Name = keyof typeof QueueId.to;
-
     //exchange
 
-    export function toString(x: QueueId.Name): Exclude<QueueId.String, 'newmap'> {
-        return QueueId.to[x];
+    public static toString(x: QueueId.Name): Exclude<QueueId.String, 'newmap'> {
+        return QueueId.to[x] as Exclude<QueueId.String, 'newmap'>;
     }
 
-    export function fromString(x: QueueId.String): QueueId.Name | typeof QueueId.from['newmap'] {
-        return QueueId.from[x];
+    public static fromString(x: QueueId.String): QueueId.Name | typeof QueueId.NewmapName {
+        return QueueId.from[x] as QueueId.Name | typeof QueueId.NewmapName;
     }
 }

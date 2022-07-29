@@ -1,7 +1,13 @@
+//interface
 export namespace Region {
+    export type String = keyof typeof Region.from;
+    export type Name = keyof typeof Region.to;
+}
+
+export class Region {
     //data
 
-    export declare const from: {
+    public static readonly from = {
         'na': 'North_America',
         'latam': 'Latin_America',
         'br': 'Brazil',
@@ -11,7 +17,7 @@ export namespace Region {
         'ap': 'Asia_Pacific',
     };
 
-    export declare const to: {
+    public static readonly to = {
         North_America: 'na',
         Latin_America: 'latam',
         Brazil: 'br',
@@ -21,18 +27,13 @@ export namespace Region {
         Asia_Pacific: 'ap',
     };
 
-    //interface
-
-    export type String = keyof typeof Region.from;
-    export type Name = keyof typeof Region.to;
-
     //exchange
 
-    export function toString(x: Region.Name): Region.String {
-        return Region.to[x];
+    public static toString(x: Region.Name): Region.String {
+        return Region.to[x] as Region.String;
     }
 
-    export function fromString(x: Region.String): Region.Name {
-        return Region.from[x];
+    public static fromString(x: Region.String): Region.Name {
+        return Region.from[x] as Region.Name;
     }
 }

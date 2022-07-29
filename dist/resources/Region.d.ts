@@ -1,24 +1,26 @@
 export declare namespace Region {
-    const from: {
-        'na': 'North_America';
-        'latam': 'Latin_America';
-        'br': 'Brazil';
-        'pbe': 'Public_Beta_Environment';
-        'eu': 'Europe';
-        'kr': 'Korea';
-        'ap': 'Asia_Pacific';
-    };
-    const to: {
-        North_America: 'na';
-        Latin_America: 'latam';
-        Brazil: 'br';
-        Public_Beta_Environment: 'pbe';
-        Europe: 'eu';
-        Korea: 'kr';
-        Asia_Pacific: 'ap';
-    };
     type String = keyof typeof Region.from;
     type Name = keyof typeof Region.to;
-    function toString(x: Region.Name): Region.String;
-    function fromString(x: Region.String): Region.Name;
+}
+export declare class Region {
+    static readonly from: {
+        na: string;
+        latam: string;
+        br: string;
+        pbe: string;
+        eu: string;
+        kr: string;
+        ap: string;
+    };
+    static readonly to: {
+        North_America: string;
+        Latin_America: string;
+        Brazil: string;
+        Public_Beta_Environment: string;
+        Europe: string;
+        Korea: string;
+        Asia_Pacific: string;
+    };
+    static toString(x: Region.Name): Region.String;
+    static fromString(x: Region.String): Region.Name;
 }

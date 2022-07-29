@@ -1,7 +1,13 @@
+//interface
 export namespace ItemTypeId {
+    export type String = keyof typeof ItemTypeId.from;
+    export type Name = keyof typeof ItemTypeId.to;
+}
+
+export class ItemTypeId {
     //data
 
-    export declare const from: {
+    public static readonly from = {
         '01bb38e1-da47-4e6a-9b3d-945fe4655707': 'Agents',
         'f85cb6f7-33e5-4dc8-b609-ec7212301948': 'Contracts',
         'd5f120f8-ff8c-4aac-92ea-f2b5acbe9475': 'Sprays',
@@ -12,7 +18,7 @@ export namespace ItemTypeId {
         'de7caa6b-adf7-4588-bbd1-143831e786c6': 'Titles',
     };
 
-    export declare const to: {
+    public static readonly to = {
         Agents: '01bb38e1-da47-4e6a-9b3d-945fe4655707',
         Contracts: 'f85cb6f7-33e5-4dc8-b609-ec7212301948',
         Sprays: 'd5f120f8-ff8c-4aac-92ea-f2b5acbe9475',
@@ -23,18 +29,13 @@ export namespace ItemTypeId {
         Titles: 'de7caa6b-adf7-4588-bbd1-143831e786c6',
     };
 
-    //interface
-
-    export type String = keyof typeof ItemTypeId.from;
-    export type Name = keyof typeof ItemTypeId.to;
-
     //exchange
 
-    export function toString(x: ItemTypeId.Name): ItemTypeId.String {
-        return ItemTypeId.to[x];
+    public static toString(x: ItemTypeId.Name): ItemTypeId.String {
+        return ItemTypeId.to[x] as ItemTypeId.String;
     }
 
-    export function fromString(x: ItemTypeId.String): ItemTypeId.Name {
-        return ItemTypeId.from[x];
+    public static fromString(x: ItemTypeId.String): ItemTypeId.Name {
+        return ItemTypeId.from[x] as ItemTypeId.Name;
     }
 }

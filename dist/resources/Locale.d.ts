@@ -1,48 +1,50 @@
 export declare namespace Locale {
-    const from: {
-        "ar-AE": "Arabic_UAE";
-        "de-DE": "German_Germany";
-        "en-GB": "English_United_Kingdom";
-        "en-US": "English_United_States";
-        "es-ES": "Spanish_Spain";
-        "es-MX": "Spanish_Mexico";
-        "fr-FR": "French_France";
-        "id-ID": "Indonesian_Indonesia";
-        "it-IT": "Italian_Italy";
-        "ja-JP": "Japanese_Japan";
-        "ko-KR": "Korean_Korea";
-        "pl-PL": "Polish_Poland";
-        "pt-BR": "Portuguese_Brazil";
-        "ru-RU": "Russian_Russia";
-        "th-TH": "Thai_Thailand";
-        "tr-TR": "Turkish_Turkey";
-        "vi-VN": "Vietnamese_Vietnam";
-        "zh-CN": "Chinese_China";
-        "zh-TW": "Chinese_Taiwan";
-    };
-    const to: {
-        Arabic_UAE: "ar-AE";
-        German_Germany: "de-DE";
-        English_United_Kingdom: "en-GB";
-        English_United_States: "en-US";
-        Spanish_Spain: "es-ES";
-        Spanish_Mexico: "es-MX";
-        French_France: "fr-FR";
-        Indonesian_Indonesia: "id-ID";
-        Italian_Italy: "it-IT";
-        Japanese_Japan: "ja-JP";
-        Korean_Korea: "ko-KR";
-        Polish_Poland: "pl-PL";
-        Portuguese_Brazil: "pt-BR";
-        Russian_Russia: "ru-RU";
-        Thai_Thailand: "th-TH";
-        Turkish_Turkey: "tr-TR";
-        Vietnamese_Vietnam: "vi-VN";
-        Chinese_China: "zh-CN";
-        Chinese_Taiwan: "zh-TW";
-    };
     type String = keyof typeof Locale.from;
     type Name = keyof typeof Locale.to;
-    function toString(x: Locale.Name): Locale.String;
-    function fromString(x: Locale.String): Locale.Name;
+}
+export declare class Locale {
+    static readonly from: {
+        "ar-AE": string;
+        "de-DE": string;
+        "en-GB": string;
+        "en-US": string;
+        "es-ES": string;
+        "es-MX": string;
+        "fr-FR": string;
+        "id-ID": string;
+        "it-IT": string;
+        "ja-JP": string;
+        "ko-KR": string;
+        "pl-PL": string;
+        "pt-BR": string;
+        "ru-RU": string;
+        "th-TH": string;
+        "tr-TR": string;
+        "vi-VN": string;
+        "zh-CN": string;
+        "zh-TW": string;
+    };
+    static readonly to: {
+        Arabic_UAE: string;
+        German_Germany: string;
+        English_United_Kingdom: string;
+        English_United_States: string;
+        Spanish_Spain: string;
+        Spanish_Mexico: string;
+        French_France: string;
+        Indonesian_Indonesia: string;
+        Italian_Italy: string;
+        Japanese_Japan: string;
+        Korean_Korea: string;
+        Polish_Poland: string;
+        Portuguese_Brazil: string;
+        Russian_Russia: string;
+        Thai_Thailand: string;
+        Turkish_Turkey: string;
+        Vietnamese_Vietnam: string;
+        Chinese_China: string;
+        Chinese_Taiwan: string;
+    };
+    static toString(x: Locale.Name): Locale.String;
+    static fromString(x: Locale.String): Locale.Name;
 }

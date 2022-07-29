@@ -1,16 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Region = void 0;
-var Region;
-(function (Region) {
-    //data
+class Region {
     //exchange
-    function toString(x) {
+    static toString(x) {
         return Region.to[x];
     }
-    Region.toString = toString;
-    function fromString(x) {
+    static fromString(x) {
         return Region.from[x];
     }
-    Region.fromString = fromString;
-})(Region = exports.Region || (exports.Region = {}));
+}
+exports.Region = Region;
+//data
+Region.from = {
+    'na': 'North_America',
+    'latam': 'Latin_America',
+    'br': 'Brazil',
+    'pbe': 'Public_Beta_Environment',
+    'eu': 'Europe',
+    'kr': 'Korea',
+    'ap': 'Asia_Pacific',
+};
+Region.to = {
+    North_America: 'na',
+    Latin_America: 'latam',
+    Brazil: 'br',
+    Public_Beta_Environment: 'pbe',
+    Europe: 'eu',
+    Korea: 'kr',
+    Asia_Pacific: 'ap',
+};
