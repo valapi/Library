@@ -8,7 +8,7 @@ const axios_1 = tslib_1.__importDefault(require("axios"));
 //class
 class AxiosClient extends CustomEvent_1.CustomEvent {
     /**
-     * Class Constructor
+     *
      * @param {AxiosRequestConfig} config Config
      */
     constructor(config = {}) {

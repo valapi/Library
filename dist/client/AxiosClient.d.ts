@@ -1,18 +1,30 @@
 import { CustomEvent } from "./CustomEvent";
 import { type Axios, type AxiosRequestConfig, type AxiosError } from 'axios';
 declare namespace AxiosClient {
+    /**
+     * Request Response
+     */
     interface Response<Return = any> {
         isError: boolean;
         data: Return;
         error?: AxiosError;
     }
+    /**
+     * Client Request Method
+     */
     type Method = 'get' | 'post' | 'put' | 'patch' | 'delete';
+    /**
+     * Client Request Event
+     */
     interface Request {
         method: AxiosClient.Method;
         url: string;
         body?: object;
         config: AxiosRequestConfig;
     }
+    /**
+     * Client Events
+     */
     interface Event {
         'ready': () => void;
         'request': (data: AxiosClient.Request) => void;
@@ -28,7 +40,7 @@ declare interface AxiosClient {
 declare class AxiosClient extends CustomEvent {
     theAxios: Axios;
     /**
-     * Class Constructor
+     *
      * @param {AxiosRequestConfig} config Config
      */
     constructor(config?: AxiosRequestConfig);

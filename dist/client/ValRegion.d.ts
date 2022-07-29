@@ -1,5 +1,8 @@
 import { Region } from "../resources/Region";
 declare namespace ValRegion {
+    /**
+     * Region Data
+     */
     interface Json {
         data: {
             base: string;
@@ -25,7 +28,7 @@ declare class ValRegion {
     private server;
     private riotRegion;
     /**
-     * Class Constructor
+     *
      * @param {String} region Region (default: na)
      */
     constructor(region?: Region.String);

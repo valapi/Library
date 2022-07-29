@@ -6,47 +6,52 @@ const Region_1 = require("../resources/Region");
 //class
 class ValRegion {
     /**
-     * Class Constructor
+     *
      * @param {String} region Region (default: na)
      */
     constructor(region = 'na') {
         this.base = region;
-        if (!Region_1.Region.from[region]) {
-            throw new Error(`Region '${String(this.base)}' not found`);
-        }
         this.region = 'na';
         this.server = 'na';
         this.riotRegion = 'americas';
         switch (region) {
-            case 'na':
+            case 'na': {
                 break;
-            case 'latam':
+            }
+            case 'latam': {
                 this.region = 'latam';
                 break;
-            case 'br':
+            }
+            case 'br': {
                 this.region = 'br';
                 break;
-            case 'pbe':
+            }
+            case 'pbe': {
                 this.server = 'pbe';
                 this.riotRegion = 'pbe1';
                 break;
-            case 'eu':
+            }
+            case 'eu': {
                 this.region = 'eu';
                 this.server = 'eu';
                 this.riotRegion = 'europe';
                 break;
-            case 'kr':
+            }
+            case 'kr': {
                 this.region = 'kr';
                 this.server = 'kr';
                 this.riotRegion = 'asia';
                 break;
-            case 'ap':
+            }
+            case 'ap': {
                 this.region = 'ap';
                 this.server = 'ap';
                 this.riotRegion = 'asia';
                 break;
-            default:
+            }
+            default: {
                 return new ValRegion('na');
+            }
         }
     }
     /**

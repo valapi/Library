@@ -1,19 +1,20 @@
 declare namespace CustomEvent {
+    /**
+     * Error Event
+     */
     interface Error {
         errorCode: string;
         message: string;
         data: any;
     }
+    /**
+     * Call Back Function
+     */
     type Function = (args: any) => any;
 }
 declare class CustomEvent {
-    protected EventController: {
-        [key: string]: Array<CustomEvent.Function>;
-    };
-    /**
-     * Class Constructor
-     */
-    constructor();
+    private EventController;
+    protected constructor();
     /**
      *
      * @param {string} name Name

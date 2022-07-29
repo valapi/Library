@@ -1,27 +1,30 @@
 //interface
 
 namespace CustomEvent {
+    /**
+     * Error Event
+     */
     export interface Error {
         errorCode: string;
         message: string;
         data: any;
     }
 
+    /**
+     * Call Back Function
+     */
     export type Function = (args: any) => any;
 }
 
 //class
 
 class CustomEvent {
-    protected EventController: {
+    private EventController: {
         //key:value
         [key: string]: Array<CustomEvent.Function>;
     };
 
-    /**
-     * Class Constructor
-     */
-    public constructor() {
+    protected constructor() {
         this.EventController = {};
     }
 
@@ -74,7 +77,7 @@ class CustomEvent {
      * @param {Function} callback Call Back Function
      */
     public once(name: string, callback: CustomEvent.Function): void {
-        const self = this as CustomEvent;
+        const self = this as this;
         const onceCallback = function (...args: Array<any>) {
             callback(args);
             self.off(name, onceCallback);

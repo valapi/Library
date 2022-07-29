@@ -6,14 +6,23 @@ import axios, { type Axios, type AxiosRequestConfig, type AxiosError, type Axios
 //interface
 
 namespace AxiosClient {
+    /**
+     * Request Response
+     */
     export interface Response<Return = any> {
         isError: boolean;
         data: Return;
         error?: AxiosError;
     }
 
+    /**
+     * Client Request Method
+     */
     export type Method = 'get' | 'post' | 'put' | 'patch' | 'delete';
 
+    /**
+     * Client Request Event
+     */
     export interface Request {
         method: AxiosClient.Method;
         url: string;
@@ -21,6 +30,9 @@ namespace AxiosClient {
         config: AxiosRequestConfig;
     }
 
+    /**
+     * Client Events
+     */
     export interface Event {
         'ready': () => void;
         'request': (data: AxiosClient.Request) => void;
@@ -43,7 +55,7 @@ class AxiosClient extends CustomEvent {
     public theAxios: Axios;
 
     /**
-     * Class Constructor
+     * 
      * @param {AxiosRequestConfig} config Config
      */
     public constructor(config: AxiosRequestConfig = {}) {

@@ -4,9 +4,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomEvent = void 0;
 //class
 class CustomEvent {
-    /**
-     * Class Constructor
-     */
     constructor() {
         this.EventController = {};
     }
