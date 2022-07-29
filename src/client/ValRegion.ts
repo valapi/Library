@@ -117,7 +117,7 @@ class ValRegion {
      * @param {string} region Region
      * @returns {ValRegion.Json}
      */
-     public static fromString(region: Region.String): ValRegion.Json {
+    public static fromString(region: Region.String): ValRegion.Json {
         const _region = new ValRegion(region);
         return _region.toJSON();
     }
