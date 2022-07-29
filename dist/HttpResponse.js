@@ -1,4 +1,7 @@
-export default {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.HttpResponse = void 0;
+exports.HttpResponse = {
     //Informational
     100: "Continue",
     101: "Switching Protocols",

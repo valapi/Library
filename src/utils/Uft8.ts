@@ -6,7 +6,7 @@
  * @param {string} unicode Encrypt mode (default: base64)
  * @returns {string}
  */
- function toUft8(data: string, unicode: BufferEncoding = 'base64'): string {
+function toUft8(data: string, unicode: BufferEncoding = 'base64'): string {
     return Buffer.from(data).toString(unicode);
 }
 

@@ -1,21 +1,23 @@
-import _Region from "../resources/Region";
-interface ValorantApiRegion {
-    data: {
-        base: string;
-        api: string;
-        server: string;
-        riot: string;
-    };
-    url: {
-        playerData: string;
-        partyService: string;
-        sharedData: string;
-    };
-    riot: {
-        api: string;
-        esports: string;
-        server: string;
-    };
+import { Region } from "../resources/Region";
+declare namespace ValRegion {
+    interface Json {
+        data: {
+            base: string;
+            api: string;
+            server: string;
+            riot: string;
+        };
+        url: {
+            playerData: string;
+            partyService: string;
+            sharedData: string;
+        };
+        riot: {
+            api: string;
+            esports: string;
+            server: string;
+        };
+    }
 }
 declare class ValRegion {
     private base;
@@ -26,17 +28,16 @@ declare class ValRegion {
      * Class Constructor
      * @param {String} region Region (default: na)
      */
-    constructor(region?: keyof typeof _Region.from);
+    constructor(region?: Region.String);
     /**
      *
-     * @returns {ValorantApiRegion}
+     * @returns {ValRegion.Json}
      */
-    toJSON(): ValorantApiRegion;
+    toJSON(): ValRegion.Json;
     /**
-     * @param {String} region Region
-     * @returns {ValorantApiRegion}
+     * @param {string} region Region
+     * @returns {ValRegion.Json}
      */
-    static fromString(region: keyof typeof _Region.to): ValorantApiRegion;
+    static fromString(region: keyof typeof Region.to): ValRegion.Json;
 }
 export { ValRegion };
-export type { ValorantApiRegion };

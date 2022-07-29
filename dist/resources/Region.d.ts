@@ -1,43 +1,24 @@
-declare const fromData: {
-    na: string;
-    latam: string;
-    br: string;
-    pbe: string;
-    eu: string;
-    kr: string;
-    ap: string;
-};
-declare const toData: {
-    North_America: string;
-    Latin_America: string;
-    Brazil: string;
-    Public_Beta_Environment: string;
-    Europe: string;
-    Korea: string;
-    Asia_Pacific: string;
-};
-declare function toString(x: keyof typeof toData): keyof typeof fromData;
-declare function fromString(x: keyof typeof fromData): keyof typeof toData;
-declare const _default: {
-    from: {
-        na: string;
-        latam: string;
-        br: string;
-        pbe: string;
-        eu: string;
-        kr: string;
-        ap: string;
+export declare namespace Region {
+    const from: {
+        'na': 'North_America';
+        'latam': 'Latin_America';
+        'br': 'Brazil';
+        'pbe': 'Public_Beta_Environment';
+        'eu': 'Europe';
+        'kr': 'Korea';
+        'ap': 'Asia_Pacific';
     };
-    to: {
-        North_America: string;
-        Latin_America: string;
-        Brazil: string;
-        Public_Beta_Environment: string;
-        Europe: string;
-        Korea: string;
-        Asia_Pacific: string;
+    const to: {
+        North_America: 'na';
+        Latin_America: 'latam';
+        Brazil: 'br';
+        Public_Beta_Environment: 'pbe';
+        Europe: 'eu';
+        Korea: 'kr';
+        Asia_Pacific: 'ap';
     };
-    toString: typeof toString;
-    fromString: typeof fromString;
-};
-export default _default;
+    type String = keyof typeof Region.from;
+    type Name = keyof typeof Region.to;
+    function toString(x: Region.Name): Region.String;
+    function fromString(x: Region.String): Region.Name;
+}

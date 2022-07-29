@@ -1,45 +1,45 @@
-const fromData = {
-    'unrated': 'Unrated',
-    'competitive': 'Competitive',
-    'spikerush': 'Spikerush',
-    'deathmatch': 'Deathmatch',
-    'ggteam': 'Escalation',
-    'onefa': 'Replication',
-    'snowball': 'Snowball_Fight',
-    '': 'Custom',
-    'tournamentmode': 'Custom_Tournament',
+export namespace QueueId {
+    //data
 
-    //change when have new map
-    'newmap': 'Pearl',
-};
+    export declare const from: {
+        'unrated': 'Unrated',
+        'competitive': 'Competitive',
+        'spikerush': 'Spikerush',
+        'deathmatch': 'Deathmatch',
+        'ggteam': 'Escalation',
+        'onefa': 'Replication',
+        'snowball': 'Snowball_Fight',
+        '': 'Custom',
+        'tournamentmode': 'Custom_Tournament',
 
-const toData = {
-    Unrated: 'unrated',
-    Competitive: 'competitive',
-    Spikerush: 'spikerush',
-    Deathmatch: 'deathmatch',
-    Escalation: 'ggteam',
-    Replication: 'onefa',
-    Snowball_Fight: 'snowball',
-    Custom: '',
-    Custom_Tournament: 'tournamentmode',
-};
+        //change when have new map
+        'newmap': 'Pearl',
+    };
 
-//exchange
+    export declare const to: {
+        Unrated: 'unrated',
+        Competitive: 'competitive',
+        Spikerush: 'spikerush',
+        Deathmatch: 'deathmatch',
+        Escalation: 'ggteam',
+        Replication: 'onefa',
+        Snowball_Fight: 'snowball',
+        Custom: '',
+        Custom_Tournament: 'tournamentmode',
+    };
 
-function toString(x: keyof typeof toData): keyof typeof fromData {
-    return toData[x] as keyof typeof fromData;
+    //interface
+
+    export type String = keyof typeof QueueId.from;
+    export type Name = keyof typeof QueueId.to;
+
+    //exchange
+
+    export function toString(x: QueueId.Name): Exclude<QueueId.String, 'newmap'> {
+        return QueueId.to[x];
+    }
+
+    export function fromString(x: QueueId.String): QueueId.Name | typeof QueueId.from['newmap'] {
+        return QueueId.from[x];
+    }
 }
-
-function fromString(x: keyof typeof fromData): keyof typeof toData {
-    return fromData[x] as keyof typeof toData;
-}
-
-//export
-
-export default {
-    from: fromData,
-    to: toData,
-    toString,
-    fromString,
-};

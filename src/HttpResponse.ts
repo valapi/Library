@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+export const HttpResponse = {
     //Informational
     100: "Continue",
     101: "Switching Protocols",

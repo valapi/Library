@@ -1,53 +1,29 @@
-declare const fromData: {
-    unrated: string;
-    competitive: string;
-    spikerush: string;
-    deathmatch: string;
-    ggteam: string;
-    onefa: string;
-    snowball: string;
-    '': string;
-    tournamentmode: string;
-    newmap: string;
-};
-declare const toData: {
-    Unrated: string;
-    Competitive: string;
-    Spikerush: string;
-    Deathmatch: string;
-    Escalation: string;
-    Replication: string;
-    Snowball_Fight: string;
-    Custom: string;
-    Custom_Tournament: string;
-};
-declare function toString(x: keyof typeof toData): keyof typeof fromData;
-declare function fromString(x: keyof typeof fromData): keyof typeof toData;
-declare const _default: {
-    from: {
-        unrated: string;
-        competitive: string;
-        spikerush: string;
-        deathmatch: string;
-        ggteam: string;
-        onefa: string;
-        snowball: string;
-        '': string;
-        tournamentmode: string;
-        newmap: string;
+export declare namespace QueueId {
+    const from: {
+        'unrated': 'Unrated';
+        'competitive': 'Competitive';
+        'spikerush': 'Spikerush';
+        'deathmatch': 'Deathmatch';
+        'ggteam': 'Escalation';
+        'onefa': 'Replication';
+        'snowball': 'Snowball_Fight';
+        '': 'Custom';
+        'tournamentmode': 'Custom_Tournament';
+        'newmap': 'Pearl';
     };
-    to: {
-        Unrated: string;
-        Competitive: string;
-        Spikerush: string;
-        Deathmatch: string;
-        Escalation: string;
-        Replication: string;
-        Snowball_Fight: string;
-        Custom: string;
-        Custom_Tournament: string;
+    const to: {
+        Unrated: 'unrated';
+        Competitive: 'competitive';
+        Spikerush: 'spikerush';
+        Deathmatch: 'deathmatch';
+        Escalation: 'ggteam';
+        Replication: 'onefa';
+        Snowball_Fight: 'snowball';
+        Custom: '';
+        Custom_Tournament: 'tournamentmode';
     };
-    toString: typeof toString;
-    fromString: typeof fromString;
-};
-export default _default;
+    type String = keyof typeof QueueId.from;
+    type Name = keyof typeof QueueId.to;
+    function toString(x: QueueId.Name): Exclude<QueueId.String, 'newmap'>;
+    function fromString(x: QueueId.String): QueueId.Name | typeof QueueId.from['newmap'];
+}

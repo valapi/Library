@@ -2,8 +2,7 @@
 //import
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ValRegion = void 0;
-const tslib_1 = require("tslib");
-const Region_1 = tslib_1.__importDefault(require("../resources/Region"));
+const Region_1 = require("../resources/Region");
 //class
 class ValRegion {
     /**
@@ -12,27 +11,22 @@ class ValRegion {
      */
     constructor(region = 'na') {
         this.base = region;
-        if (!Region_1.default.from[region]) {
+        if (!Region_1.Region.from[region]) {
             throw new Error(`Region '${String(this.base)}' not found`);
         }
+        this.region = 'na';
+        this.server = 'na';
+        this.riotRegion = 'americas';
         switch (region) {
             case 'na':
-                this.region = 'na';
-                this.server = 'na';
-                this.riotRegion = 'americas';
                 break;
             case 'latam':
                 this.region = 'latam';
-                this.server = 'na';
-                this.riotRegion = 'americas';
                 break;
             case 'br':
                 this.region = 'br';
-                this.server = 'na';
-                this.riotRegion = 'americas';
                 break;
             case 'pbe':
-                this.region = 'na';
                 this.server = 'pbe';
                 this.riotRegion = 'pbe1';
                 break;
@@ -57,7 +51,7 @@ class ValRegion {
     }
     /**
      *
-     * @returns {ValorantApiRegion}
+     * @returns {ValRegion.Json}
      */
     toJSON() {
         return {
@@ -80,11 +74,11 @@ class ValRegion {
         };
     }
     /**
-     * @param {String} region Region
-     * @returns {ValorantApiRegion}
+     * @param {string} region Region
+     * @returns {ValRegion.Json}
      */
     static fromString(region) {
-        const _region = new ValRegion(Region_1.default.toString(region));
+        const _region = new ValRegion(Region_1.Region.toString(region));
         return _region.toJSON();
     }
 }

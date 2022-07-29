@@ -1,4 +1,4 @@
-declare const _default: {
+export declare const HttpResponse: {
     100: string;
     101: string;
     102: string;
@@ -63,4 +63,3 @@ declare const _default: {
     510: string;
     511: string;
 };
-export default _default;

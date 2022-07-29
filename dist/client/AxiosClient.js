@@ -22,7 +22,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     /**
      *
      * @param {AxiosError} error Axios Error
-     * @returns {ValorantApiRequestResponse}
+     * @returns {AxiosClient.Response}
      */
     errorHandler(error) {
         //event
@@ -61,7 +61,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     /**
     * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
     get(url, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -89,7 +89,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     * @param {string} url URL
     * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
     post(url, body = {}, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -118,7 +118,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     * @param {string} url URL
     * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
     put(url, body = {}, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -147,7 +147,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     * @param {string} url URL
     * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
     patch(url, body = {}, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -175,7 +175,7 @@ class AxiosClient extends CustomEvent_1.CustomEvent {
     /**
     * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
     delete(url, config = {}) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {

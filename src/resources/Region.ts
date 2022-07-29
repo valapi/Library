@@ -1,38 +1,38 @@
-const fromData = {
-    'na': 'North_America',
-    'latam': 'Latin_America',
-    'br': 'Brazil',
-    'pbe': 'Public_Beta_Environment',
-    'eu': 'Europe',
-    'kr': 'Korea',
-    'ap': 'Asia_Pacific',
-};
+export namespace Region {
+    //data
 
-const toData = {
-    North_America: 'na',
-    Latin_America: 'latam',
-    Brazil: 'br',
-    Public_Beta_Environment: 'pbe',
-    Europe: 'eu',
-    Korea: 'kr',
-    Asia_Pacific: 'ap',
-};
+    export declare const from: {
+        'na': 'North_America',
+        'latam': 'Latin_America',
+        'br': 'Brazil',
+        'pbe': 'Public_Beta_Environment',
+        'eu': 'Europe',
+        'kr': 'Korea',
+        'ap': 'Asia_Pacific',
+    };
 
-//exchange
+    export declare const to: {
+        North_America: 'na',
+        Latin_America: 'latam',
+        Brazil: 'br',
+        Public_Beta_Environment: 'pbe',
+        Europe: 'eu',
+        Korea: 'kr',
+        Asia_Pacific: 'ap',
+    };
 
-function toString(x: keyof typeof toData): keyof typeof fromData {
-    return toData[x] as keyof typeof fromData;
+    //interface
+
+    export type String = keyof typeof Region.from;
+    export type Name = keyof typeof Region.to;
+
+    //exchange
+
+    export function toString(x: Region.Name): Region.String {
+        return Region.to[x];
+    }
+
+    export function fromString(x: Region.String): Region.Name {
+        return Region.from[x];
+    }
 }
-
-function fromString(x: keyof typeof fromData): keyof typeof toData {
-    return fromData[x] as keyof typeof toData;
-}
-
-//export
-
-export default {
-    from: fromData,
-    to: toData,
-    toString,
-    fromString,
-};

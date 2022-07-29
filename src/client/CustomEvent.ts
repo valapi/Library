@@ -1,19 +1,21 @@
 //interface
 
-interface ValorantApiError {
-    errorCode: string;
-    message: string;
-    data: any;
-}
+namespace CustomEvent {
+    export interface Error {
+        errorCode: string;
+        message: string;
+        data: any;
+    }
 
-type ValorantCustomEventFunction = (args: any) => any;
+    export type Function = (args: any) => any;
+}
 
 //class
 
 class CustomEvent {
     protected EventController: {
         //key:value
-        [key: string]: Array<ValorantCustomEventFunction>;
+        [key: string]: Array<CustomEvent.Function>;
     };
 
     /**
@@ -30,7 +32,7 @@ class CustomEvent {
      */
     public emit(name: string, ...args: Array<any>): void {
         if (this.EventController[name]) {
-            this.EventController[name].forEach((callback: ValorantCustomEventFunction) => {
+            this.EventController[name].forEach((callback: CustomEvent.Function) => {
                 callback(args);
             });
         }
@@ -41,10 +43,10 @@ class CustomEvent {
      * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    public off(name: string, callback?: (ValorantCustomEventFunction)): void {
+    public off(name: string, callback?: (CustomEvent.Function)): void {
         if (this.EventController[name]) {
             if (callback) {
-                this.EventController[name] = this.EventController[name].filter((cb: ValorantCustomEventFunction) => {
+                this.EventController[name] = this.EventController[name].filter((cb: CustomEvent.Function) => {
                     return cb !== callback;
                 });
             } else {
@@ -58,7 +60,7 @@ class CustomEvent {
      * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    public on(name: string, callback: ValorantCustomEventFunction): void {
+    public on(name: string, callback: CustomEvent.Function): void {
         if (!this.EventController[name]) {
             this.EventController[name] = [];
         }
@@ -71,8 +73,8 @@ class CustomEvent {
      * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    public once(name: string, callback: ValorantCustomEventFunction): void {
-        const self = this as this;
+    public once(name: string, callback: CustomEvent.Function): void {
+        const self = this as CustomEvent;
         const onceCallback = function (...args: Array<any>) {
             callback(args);
             self.off(name, onceCallback);
@@ -86,4 +88,3 @@ class CustomEvent {
 //export
 
 export { CustomEvent };
-export type { ValorantApiError, ValorantCustomEventFunction };

@@ -1,16 +1,29 @@
-import { CustomEvent, type ValorantApiError } from "./CustomEvent";
+import { CustomEvent } from "./CustomEvent";
 import { type Axios, type AxiosRequestConfig, type AxiosError } from 'axios';
-interface ValorantApiRequestResponse<ValorantApiRequestReturn = any> {
-    isError: boolean;
-    data: ValorantApiRequestReturn;
-    error?: AxiosError;
+declare namespace AxiosClient {
+    interface Response<Return = any> {
+        isError: boolean;
+        data: Return;
+        error?: AxiosError;
+    }
+    type Method = 'get' | 'post' | 'put' | 'patch' | 'delete';
+    interface Request {
+        method: AxiosClient.Method;
+        url: string;
+        body?: object;
+        config: AxiosRequestConfig;
+    }
+    interface Event {
+        'ready': () => void;
+        'request': (data: AxiosClient.Request) => void;
+        'error': (data: CustomEvent.Error) => void;
+    }
 }
-declare type ValorantApiRequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete';
-interface ValorantApiRequestData {
-    method: ValorantApiRequestMethod;
-    url: string;
-    body?: object;
-    config: AxiosRequestConfig;
+declare interface AxiosClient {
+    emit<EventName extends keyof AxiosClient.Event>(name: EventName, ...args: Parameters<AxiosClient.Event[EventName]>): void;
+    on<EventName extends keyof AxiosClient.Event>(name: EventName, callback: AxiosClient.Event[EventName]): void;
+    once<EventName extends keyof AxiosClient.Event>(name: EventName, callback: AxiosClient.Event[EventName]): void;
+    off<EventName extends keyof AxiosClient.Event>(name: EventName, callback?: AxiosClient.Event[EventName]): void;
 }
 declare class AxiosClient extends CustomEvent {
     theAxios: Axios;
@@ -22,53 +35,41 @@ declare class AxiosClient extends CustomEvent {
     /**
      *
      * @param {AxiosError} error Axios Error
-     * @returns {ValorantApiRequestResponse}
+     * @returns {AxiosClient.Response}
      */
     private errorHandler;
     /**
     * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
-    get(url: string, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
+    get(url: string, config?: AxiosRequestConfig): Promise<AxiosClient.Response<any>>;
     /**
     * @param {string} url URL
     * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
-    post(url: string, body?: object, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
+    post(url: string, body?: object, config?: AxiosRequestConfig): Promise<AxiosClient.Response<any>>;
     /**
     * @param {string} url URL
     * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
-    put(url: string, body?: object, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
+    put(url: string, body?: object, config?: AxiosRequestConfig): Promise<AxiosClient.Response<any>>;
     /**
     * @param {string} url URL
     * @param {object} body Body
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
-    patch(url: string, body?: object, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
+    patch(url: string, body?: object, config?: AxiosRequestConfig): Promise<AxiosClient.Response<any>>;
     /**
     * @param {string} url URL
     * @param {AxiosRequestConfig} config Axios Config
-    * @returns {Promise<ValorantApiRequestResponse>}
+    * @returns {Promise<AxiosClient.Response>}
     */
-    delete(url: string, config?: AxiosRequestConfig): Promise<ValorantApiRequestResponse<any>>;
-}
-interface ValorantApiRequestEvent {
-    'ready': () => void;
-    'request': (data: ValorantApiRequestData) => void;
-    'error': (data: ValorantApiError) => void;
-}
-declare interface AxiosClient {
-    emit<EventName extends keyof ValorantApiRequestEvent>(name: EventName, ...args: Parameters<ValorantApiRequestEvent[EventName]>): void;
-    on<EventName extends keyof ValorantApiRequestEvent>(name: EventName, callback: ValorantApiRequestEvent[EventName]): void;
-    once<EventName extends keyof ValorantApiRequestEvent>(name: EventName, callback: ValorantApiRequestEvent[EventName]): void;
-    off<EventName extends keyof ValorantApiRequestEvent>(name: EventName, callback?: ValorantApiRequestEvent[EventName]): void;
+    delete(url: string, config?: AxiosRequestConfig): Promise<AxiosClient.Response<any>>;
 }
 export { AxiosClient };
-export type { ValorantApiRequestResponse, ValorantApiRequestMethod, ValorantApiRequestData, ValorantApiRequestEvent };

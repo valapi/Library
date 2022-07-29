@@ -1,12 +1,14 @@
-interface ValorantApiError {
-    errorCode: string;
-    message: string;
-    data: any;
+declare namespace CustomEvent {
+    interface Error {
+        errorCode: string;
+        message: string;
+        data: any;
+    }
+    type Function = (args: any) => any;
 }
-declare type ValorantCustomEventFunction = (args: any) => any;
 declare class CustomEvent {
     protected EventController: {
-        [key: string]: Array<ValorantCustomEventFunction>;
+        [key: string]: Array<CustomEvent.Function>;
     };
     /**
      * Class Constructor
@@ -23,19 +25,18 @@ declare class CustomEvent {
      * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    off(name: string, callback?: (ValorantCustomEventFunction)): void;
+    off(name: string, callback?: (CustomEvent.Function)): void;
     /**
      *
      * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    on(name: string, callback: ValorantCustomEventFunction): void;
+    on(name: string, callback: CustomEvent.Function): void;
     /**
      * Beta
      * @param {string} name Name
      * @param {Function} callback Call Back Function
      */
-    once(name: string, callback: ValorantCustomEventFunction): void;
+    once(name: string, callback: CustomEvent.Function): void;
 }
 export { CustomEvent };
-export type { ValorantApiError, ValorantCustomEventFunction };

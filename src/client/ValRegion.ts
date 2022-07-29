@@ -1,65 +1,63 @@
 //import
 
-import _Region from "../resources/Region";
+import { Region } from "../resources/Region";
 
 //interface
 
-interface ValorantApiRegion {
-    data: {
-        base: string,
-        api: string,
-        server: string,
-        riot: string,
-    },
-    url: {
-        playerData: string,
-        partyService: string,
-        sharedData: string,
-    },
-    riot: {
-        api: string,
-        esports: string,
-        server: string,
+namespace ValRegion {
+    export interface Json {
+        data: {
+            base: string,
+            api: string,
+            server: string,
+            riot: string,
+        },
+        url: {
+            playerData: string,
+            partyService: string,
+            sharedData: string,
+        },
+        riot: {
+            api: string,
+            esports: string,
+            server: string,
+        }
     }
 }
 
 //class
 
 class ValRegion {
-    private base: keyof typeof _Region | string;
-    private region: any;
-    private server: any;
-    private riotRegion: any;
+    private base: Region.String;
+    private region: string;
+    private server: string;
+    private riotRegion: string;
 
     /**
      * Class Constructor
      * @param {String} region Region (default: na)
      */
-    public constructor(region: keyof typeof _Region.from = 'na') {
+    public constructor(region: Region.String = 'na') {
         this.base = region;
 
-        if (!_Region.from[region]) {
+        if (!Region.from[region]) {
             throw new Error(`Region '${String(this.base)}' not found`);
         }
 
+        this.region = 'na';
+        this.server = 'na';
+        this.riotRegion = 'americas';
+
         switch (region) {
             case 'na':
-                this.region = 'na';
-                this.server = 'na';
-                this.riotRegion = 'americas';
                 break;
             case 'latam':
                 this.region = 'latam';
-                this.server = 'na';
-                this.riotRegion = 'americas';
                 break;
             case 'br':
                 this.region = 'br';
-                this.server = 'na';
-                this.riotRegion = 'americas';
                 break;
             case 'pbe':
-                this.region = 'na';
                 this.server = 'pbe';
                 this.riotRegion = 'pbe1';
                 break;
@@ -85,9 +83,9 @@ class ValRegion {
 
     /**
      * 
-     * @returns {ValorantApiRegion}
+     * @returns {ValRegion.Json}
      */
-    public toJSON(): ValorantApiRegion {
+    public toJSON(): ValRegion.Json {
         return {
             data: {
                 base: this.base,
@@ -109,11 +107,11 @@ class ValRegion {
     }
 
     /**
-     * @param {String} region Region
-     * @returns {ValorantApiRegion}
+     * @param {string} region Region
+     * @returns {ValRegion.Json}
      */
-    public static fromString(region: keyof typeof _Region.to): ValorantApiRegion {
-        const _region = new ValRegion(_Region.toString(region));
+    public static fromString(region: keyof typeof Region.to): ValRegion.Json {
+        const _region = new ValRegion(Region.toString(region));
         return _region.toJSON();
     }
 }
@@ -121,4 +119,3 @@ class ValRegion {
 //export
 
 export { ValRegion };
-export type { ValorantApiRegion };
