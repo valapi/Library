@@ -83,6 +83,14 @@ class ValRegion {
      * @returns {ValRegion.Json}
      */
     static fromString(region) {
+        const _region = new ValRegion(region);
+        return _region.toJSON();
+    }
+    /**
+     * @param {string} region Region
+     * @returns {ValRegion.Json}
+     */
+    static fromName(region) {
         const _region = new ValRegion(Region_1.Region.toString(region));
         return _region.toJSON();
     }

@@ -41,6 +41,11 @@ declare class ValRegion {
      * @param {string} region Region
      * @returns {ValRegion.Json}
      */
-    static fromString(region: keyof typeof Region.to): ValRegion.Json;
+    static fromString(region: Region.String): ValRegion.Json;
+    /**
+     * @param {string} region Region
+     * @returns {ValRegion.Json}
+     */
+    static fromName(region: Region.Name): ValRegion.Json;
 }
 export { ValRegion };
